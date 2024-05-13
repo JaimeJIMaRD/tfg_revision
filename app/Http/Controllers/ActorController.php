@@ -24,5 +24,28 @@ class ActorController extends Controller
         return view('actor.show', compact('actor', 'personajes'));
     }
 
+    public function getActorName($actor_id)
+    {
+        $actor = Actor::findOrFail($actor_id);
+        $nombre_completo = $actor->nombre . ' ' . $actor->apellido;
+        return $nombre_completo;
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('q');
+
+        if (!$query) {
+            return redirect()->route('index');
+        }
+
+        $actor = Actor::where('nombre', 'LIKE', "%$query%")
+            ->orWhere('apellido', 'LIKE', "%$query%")
+            ->orderBy('apellido')
+            ->get();
+
+        return view('actor.search', compact('actor', 'query'));
+    }
+
 }
 

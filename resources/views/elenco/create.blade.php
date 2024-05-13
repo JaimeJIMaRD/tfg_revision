@@ -1,4 +1,6 @@
-<form action="{{ route('guardar_elenco') }}" method="POST" enctype="multipart/form-data">
+@extends('layouts.public')
+@section('content')
+<form class="pt-[10vh]" action="{{ route('guardar_elenco') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <label for="nombre_elenco">Nombre del Elenco:</label>
     <input type="text" name="nombre_elenco">
@@ -81,3 +83,4 @@
         container.appendChild(papelDiv);
     });
 </script>
+@endsection

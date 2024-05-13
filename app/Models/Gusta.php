@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Gusta extends Model
 {
     use HasFactory;
+    protected $table = 'Gusta';
 
     protected $fillable = [
         'user_id',
@@ -23,4 +24,6 @@ class Gusta extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
 }

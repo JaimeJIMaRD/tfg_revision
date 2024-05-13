@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\User;
 class Comentario extends Model
 {
     use HasFactory;
+    protected $table = 'Comentario';
+
 
     protected $fillable = [
         'contenido',
@@ -17,11 +19,11 @@ class Comentario extends Model
     ];
     public function elencos()
     {
-        return $this->BelongsTo(Elenco::class);
+        return $this->belongsTo(Elenco::class);
     }
 
     public function usuario()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
     }
 }

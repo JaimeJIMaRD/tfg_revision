@@ -36,6 +36,4 @@ class Elenco extends Model
     {
         return $this->hasMany(Papel::class);
     }
-
-
 }
