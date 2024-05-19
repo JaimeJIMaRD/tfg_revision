@@ -15,14 +15,14 @@ class ActorController extends Controller
         return view('actor.index', compact('actor'));
     }
 
-    public function show($id)
-    {
-        $actor = Actor::findOrFail($id);
-        $actor->actores_recurrentes = json_decode($actor->actores_recurrentes);
-        $personajes = $actor->personajes;
+        public function show($id)
+        {
+            $actor = Actor::findOrFail($id);
+            $actor->actores_recurrentes = json_decode($actor->actores_recurrentes);
+            $personajes = $actor->personajes;
 
-        return view('actor.show', compact('actor', 'personajes'));
-    }
+            return view('actor.show', compact('actor', 'personajes'));
+        }
 
     public function getActorName($actor_id)
     {

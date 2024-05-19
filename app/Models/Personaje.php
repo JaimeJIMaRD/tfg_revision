@@ -29,4 +29,19 @@ class Personaje extends Model
     {
         return $this->hasMany(Otro_Actor::class);
     }
+
+    public function muestra()
+    {
+        return $this->belongsTo(File::class, 'muestra_id');
+    }
+
+    public function imagenLogo()
+    {
+        return $this->belongsTo(File::class, 'imagen_logo_id');
+    }
+
+    public function imagenFondo()
+    {
+        return $this->belongsTo(File::class, 'imagen_fondo_id');
+    }
 }

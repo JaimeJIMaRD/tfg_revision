@@ -63,6 +63,21 @@
             }
         }
 
+        @keyframes aparecerDesdeArriba {
+            from {
+                opacity: 0.6;
+                transform: translateY(-100%);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .aparecer-desde-arriba {
+            animation: aparecerDesdeArriba 0.5s ease-out forwards;
+        }
+
         @keyframes abajont {
             0% {
                 transform: translateY(20vh);
@@ -167,14 +182,16 @@
 
 
     <a href="{{ route('index') }}">
-        <p class="text-center my-auto w-1/3 font-bold text-3xl">Doblapedia</p>
+        <p class="text-center my-auto translate-y-0  transition-transform duration-200 hover:scale-[105%] ease-in-out scale-100 font-bold text-3xl w-fit" id="doblapedia">Doblapedia</p>
     </a>
-    <div class="w-1/3 ">
-        <form id="search-form" action="{{ route('actors.search') }}" method="GET">
+    <div class="w-1/3">
+        <form id="search-form" action="{{ route('actors.search') }}" method="GET" class="relative w-fit mx-auto">
             <input type="text" id="search-input" name="q" placeholder="Buscar actor..."
                    class="px-3 py-1 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-500">
-            <button type="submit" class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md">Buscar</button>
-        </form>    </div>
+            <button type="submit" class="absolute top-1/2 transform -translate-y-1/2 px-4 py-.5 bg-blue-500 text-white right-1.5 rounded-md">Buscar</button>
+        </form>
+
+    </div>
 </nav>
 
 @yield('content')
